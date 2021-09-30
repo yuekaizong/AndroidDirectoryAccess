@@ -6,20 +6,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 
 import com.aghajari.app.androidr.adapter.Adapter;
 import com.aghajari.app.androidr.utils.DividerItemDecoration;
 import com.aghajari.app.androidr.utils.EmptyItemDecoration;
+import com.aghajari.app.androidr.utils.FileHandler;
 import com.aghajari.app.androidr.utils.PermissionUtils;
-
-import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 
     public final static int REQUEST_CODE = 100;
 
     Adapter adapter;
+    FileHandler fileHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         adapter = new Adapter(this, findViewById(R.id.loading_parent));
+        fileHandler = new FileHandler(this);
+        adapter.setFileHandler(fileHandler);
 
         RecyclerView rv = findViewById(R.id.rv);
         rv.setAdapter(adapter);

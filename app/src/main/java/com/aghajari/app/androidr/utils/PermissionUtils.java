@@ -28,7 +28,7 @@ import static android.os.Build.VERSION.SDK_INT;
  */
 public final class PermissionUtils {
 
-    public static final String ANDROID = "primary:Android";
+    public static final String ANDROID = "primary:Pictures";
     public static final String ANDROID_DATA = "primary:Android/data";
     public static final String ANDROID_OBB = "primary:Android/obb";
 

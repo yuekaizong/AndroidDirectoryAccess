@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.aghajari.app.androidr.utils.FileUtil;
 import com.aghajari.app.androidr.MainActivity;
+import com.aghajari.app.androidr.utils.FileHandler;
 import com.aghajari.app.androidr.utils.PermissionUtils;
 import com.aghajari.app.androidr.R;
 import com.bumptech.glide.Glide;
@@ -206,9 +207,22 @@ public class Adapter extends RecyclerView.Adapter<Adapter.VH> {
                 public boolean onLongClick(View view) {
                     String text = file.getAbsolutePath(context);
                     Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+                    if (fileHandler !=null){
+                        fileHandler.open(file);
+                    }
                     return true;
                 }
             });
         }
+    }
+
+    private FileHandler fileHandler;
+
+    public FileHandler getFileHandler() {
+        return fileHandler;
+    }
+
+    public void setFileHandler(FileHandler fileHandler) {
+        this.fileHandler = fileHandler;
     }
 }
